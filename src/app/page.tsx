@@ -2,7 +2,6 @@
 import "./input.css";
 import { BoxesCore } from "./_components/Background-Boxes";
 import Greet from "./_components/IntroBox";
-import { TracingBeam } from "./_components/Scroll-Beam";
 
 export default function Home() {
   return (
@@ -15,13 +14,6 @@ export default function Home() {
             <div className="flex flex-1 h-screen justify-center items-center top-[50%] left-[50%]  ">
               <Greet />
             </div>
-            <TracingBeam
-              children={
-                <>
-                  <div className="w-full h-full"></div>
-                </>
-              }
-            />
           </div>
         </div>
       </div>
