@@ -12,7 +12,7 @@ export default function Greet() {
         <h1 className="greet-text text-white font-bold text-7xl"> Hey👋!!</h1>
 
         <h1 className="greet-text text-white font-bold text-6xl">
-          I'm Nishchit{" "}
+          I&apos;m Nishchit
         </h1>
       </div>
     </>
