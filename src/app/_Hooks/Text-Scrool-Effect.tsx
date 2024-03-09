@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { TextIntroTypewriter } from "../_components/Typing-Effect";
 
 export const useScrollText = () => {
   const [posY, setPosY] = useState(0);
