@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Poppins, JetBrains_Mono } from "next/font/google";
+import { TracingBeam } from "./_components/Scroll-Beam";
 // import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -28,7 +29,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={jetBrains.className}>{children}</body>
+      <body className={jetBrains.className}>{children}
+      </body>
     </html>
   );
 }

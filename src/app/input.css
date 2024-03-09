@@ -14,7 +14,7 @@
 }
 @keyframes reveal {
   0% {
-    transform: translate(0, 100%);
+    transform: translate(0, 300%);
   }
   100% {
     transform: translate(0, 0);
