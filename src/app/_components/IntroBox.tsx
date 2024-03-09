@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useScrollText } from "../Hooks/Text-Scrool-Effect";
+import { useScrollText } from "../_Hooks/Text-Scrool-Effect";
 
 export default function Greet() {
   const { posY } = useScrollText();
