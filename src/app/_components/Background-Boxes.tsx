@@ -1,10 +1,10 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { cn } from "../utils/cn";
 
 export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
-  const rows = new Array(150).fill(1);
+  const rows = new Array(70).fill(1);
   const cols = new Array(100).fill(1);
   let colors = [
     "--sky-300",
@@ -20,6 +20,52 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
   const getRandomColor = () => {
     return colors[Math.floor(Math.random() * colors.length)];
   };
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     for (let k = 0; k < 151; k++) {
+  //       let elements = document.getElementsByClassName(`row${k}col14`);
+  //       let currentIndex = 0;
+  //       const glowInterval = setInterval(() => {
+  //         if (currentIndex >= elements.length) {
+  //           clearInterval(glowInterval);
+  //           return;
+  //         }
+  //         let currentElement = elements[currentIndex];
+  //         currentElement.style.backgroundColor = `var(${getRandomColor()})`;
+  //         setTimeout(() => {
+  //           currentElement.style.backgroundColor = "";
+  //         }, 2000); // Reset the background color after 1 second
+  //         currentIndex++;
+  //       }, 3000);
+  //     } // Change color every 2 seconds
+  //   }, 1000);
+  //   // Wait for one cycle before starting the next
+
+  //   return () => clearInterval(intervalId);
+  // }, []);
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     for (let k = 0; k < 151; k++) {
+  //       let ele = document.getElementsByClassName(`row${k}col14`);
+  //       let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+  //       for (let i = 0; i < ele.length; i++) {
+  //         ele[i].style.backgroundColor = "#" + randomColor;
+  //       }
+  //       setTimeout(() => {
+  //         for (let i = 0; i < ele.length; i++) {
+  //           ele[i].style.backgroundColor = ""; // Reset the background color
+  //         }
+  //       }, 1000); // Reset the background color after 1 second
+  //     }
+  //   }, 2000); // Change color every 2 seconds
+
+  //   // Clean up the interval on component unmount
+  //   return () => clearInterval(intervalId);
+  // }, []);
+  // useEffect(() => {
+  //   let ele = document.getElementsByClassName("row_");
+  //   console.log(ele.length);
+  // }, []);
 
   return (
     <div
@@ -35,7 +81,7 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
       {rows.map((_, i) => (
         <motion.div
           key={`row` + i}
-          className="w-24 h-16  border-l  border-slate-700 relative"
+          className=" w-24 h-16  border-l  border-slate-700 relative"
         >
           {cols.map((_, j) => (
             <motion.div
@@ -47,7 +93,7 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
                 transition: { duration: 2 },
               }}
               key={`col` + j}
-              className="w-24 h-16  border-r border-t border-slate-700 relative"
+              className={`row${i}col${j} w-24 h-16  border-r border-t border-slate-700 relative`}
             >
               {j % 2 === 0 && i % 2 === 0 ? (
                 <svg

@@ -6,9 +6,7 @@ export const useScrollText = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      console.log("scroll");
       let tempY = window.pageYOffset;
-      console.log(tempY);
       setPosY(tempY);
     };
     window.addEventListener("scroll", handleScroll);
