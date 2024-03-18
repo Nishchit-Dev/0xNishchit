@@ -15,19 +15,9 @@ export default function Home() {
   const { posY } = useScrollText();
   const divRef: any = useRef(null);
   const [lvl2, setLvl2] = useState(0);
-  const [scrollFactor, setScrollFactor] = useState(0.75);
+  const [scrollFactor, setScrollFactor] = useState(0.15);
 
-  useEffect(() => {
-    if (posY > screen.height - 100) {
-      divRef.current.focus();
-      console.log("auto focused");
-      // divRef.current.scrollIntoView({ behavior: "smooth" });
-    } else if (posY > screen.height * 2 - 100) {
-      divRef.current.focus();
-      console.log("auto focused");
-      // divRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [posY]);
+  useEffect(() => {}, [posY]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,6 +38,15 @@ export default function Home() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const style = () => {
+    if (posY >300) {
+      return {
+        transform: `scale(${1})`,
+        transition: "transform 0.3s ease",
+      };
+    }
+  };
 
   return (
     <>
@@ -70,17 +69,14 @@ export default function Home() {
 
       <div
         id="lvl2Wrapper"
-        className={`top-[1024px] relative backdrop-blur-xl `}
-        style={{
-          transform: `scale(${scrollFactor + 0.65})`,
-          transition: "transform 0.3s ease",
-        }}
+        className={`top-[1024px] relative backdrop-blur-xl scale-[0.65] `}
+        style={style()}
       >
         {/* lvl-1 */}
 
         <div
           id="lvl2"
-          className=" py-9  flex flex-1 h-max  justify-center items-center  top-[50%] left-[50%]"
+          className=" w-full py-9  flex flex-1 h-max  justify-center items-center  top-[50%] left-[50%]"
           ref={divRef}
         >
           <Blogs />

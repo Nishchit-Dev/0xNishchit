@@ -4,7 +4,7 @@ import { BlogPostType } from "../../_Types/blogPostType";
 import { BlogCard } from "./BlogCard";
 const Blogs = () => {
   const { blogsData } = useFetchBlogs();
-  console.log(blogsData);
+  // console.log(blogsData);
   return (
     <>
       {/* <BentoGrid>

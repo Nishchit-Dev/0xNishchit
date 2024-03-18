@@ -70,48 +70,63 @@ const crypto = [
   "Tether.svg",
 ];
 
-const Skills = () => {
+const CryptoAppMockups = () => {
   useEffect(() => {
     const ApeFestRound = document.querySelectorAll(".cryptoCircle");
 
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      ApeFestRound.forEach((e:any) => {
-        e.style.transform = `rotateZ(${scrollY*0.25 }deg)`;
+      ApeFestRound.forEach((e: any) => {
+        let temp = scrollY * 0.3;
+        e.style.transition = "transform 2s ease";
+        e.style.transform = `rotateZ(${temp}deg)`;
       });
     };
     window.addEventListener("scroll", handleScroll);
   }, []);
   return (
     <>
-      <div className=" h-auto  flex flex-col overflow-hidden justify-center items-center">
-        <div className="flex flex-row items-center gap-2 bg-white rounded-full w-fit px-2 py-2">
-          <img src="/star.svg" color="white" width={"27px"} />
-          <h1 className=" font-semibold text-2xl">Skills</h1>
-        </div>
-        <SkillsMarquee />
-        <div className=" bg-white p-8 rounded-xl w-full ">
-          <div className="flex flex-1 flex-row items-center ">
-            <div>
+      <div className=" bg-white rounded-xl w-full">
+        <div className="relative  flex flex-row items-center  justify-center ">
+          <div className="relative ">
+            <div className="z-10">
               <img
                 src="/mockup/mockup1.svg"
-                width="900px"
-                className="relative object-contain scale-150 z-10"
+                width={"50%"}
+                style={{ zIndex: 10 }}
+                className="relative z-10 object-contain sm: w-[800px]"
               />
-              <div className="relative top-[-450px] left-[120px] z-0">
-                <img
-                  src="/mockup/CryptoIcons/cryptoCircle.svg"
-                  width={"600px"}
-                  className="cryptoCircle"
-                />
-              </div>
             </div>
+            <div className="relative sm: top-[-264px] left-[34px] md: top-[-350px] left-[100px] lg: top-[-370px] left-[120px]   z-0 ">
+              <img
+                src="/mockup/CryptoIcons/cryptoCircle.svg"
+                width={"40%"}
+                style={{ zIndex: "0" }}
+                className="cryptoCircle z-[-1] relative sm: w-80 md:w-[500px]"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
 
+const Skills = () => {
+  return (
+    <>
+      <div className=" h-auto  flex flex-col overflow-hidden justify-center items-center ">
+        <div className="flex flex-row items-center gap-2  rounded-full w-fit px-2 py-2">
+          <img src="/star.svg" color="white" width={"27px"} />
+          <h1 className=" font-semibold text-2xl">Projects</h1>
+        </div>
+        <SkillsMarquee />
+        <div className="flex flex-row bg-white w-full justify-center items-center">
+          <CryptoAppMockups />
+          <div>
+            <h1 className="font-bold text-2xl lg: inline visible  md: inline sm: hidden ">Crypto-Wallet</h1>
             <div>
-              <h1 className=" font-bold text-2xl">Crypto-Wallet</h1>
-              <div>
-                {/* <img src="/mockup/CryptoIcons/cryptoCircle.svg" /> */}
-              </div>
+              {/* <img src="/mockup/CryptoIcons/cryptoCircle.svg" /> */}
             </div>
           </div>
         </div>
