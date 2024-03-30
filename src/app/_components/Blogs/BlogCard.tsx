@@ -2,7 +2,7 @@ import { BlogPostType } from "@/app/_Types/blogPostType";
 
 export const BlogCard = ({ data }: { data: BlogPostType }) => {
   return (
-    <div className=" w-60 bg-white cursor-pointer">
+    <div className=" w-60 bg-slate-800 cursor-pointer">
       <div>
         {data.coverImageUrl != "" ? (
           <img
@@ -15,10 +15,10 @@ export const BlogCard = ({ data }: { data: BlogPostType }) => {
       </div>
       <div className="p-8 ">
         <div>
-          <p className=" line-clamp-2">{data.title}</p>
+          <p className=" line-clamp-2 text-white">{data.title}</p>
         </div>
         <div>
-          <p className=" line-clamp-3 text-slate-500 text-xs">{data.brief}</p>
+          <p className=" line-clamp-3 text-slate-400 text-xs">{data.brief}</p>
         </div>
       </div>
     </div>

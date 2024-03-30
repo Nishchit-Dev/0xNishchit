@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
+import { TextGenerateEffect } from "../Text-GenerationEffect";
 
 const Icon_1 = [
   "/icons/Eth.svg",
@@ -86,23 +87,21 @@ const CryptoAppMockups = () => {
   }, []);
   return (
     <>
-      <div className=" bg-white rounded-xl w-full">
-        <div className="relative  flex flex-row items-center  justify-center ">
+      <div className=" bg-white rounded-xl flex flex-1 justify-center items-center">
+        <div className="relative  flex flex-row  justify-center items-center">
           <div className="relative ">
             <div className="z-10">
               <img
                 src="/mockup/mockup1.svg"
-                width={"50%"}
                 style={{ zIndex: 10 }}
-                className="relative z-10 object-contain sm: w-[800px]"
+                className="relative z-10 object-contain w-[650px] sm:w-[800px] lg:w-[650px]"
               />
             </div>
-            <div className="relative sm: top-[-264px] left-[34px] md: top-[-350px] left-[100px] lg: top-[-370px] left-[120px]   z-0 ">
+            <div className=" z-0 relative top-[-264px] max-[640px]:left-[24px] max-[640px]:top-[-264px] left-[24px] max-[768px]:top-[-350px] left-[100px]  max-[1024px]:top-[-280px] left-[82px]">
               <img
                 src="/mockup/CryptoIcons/cryptoCircle.svg"
-                width={"40%"}
                 style={{ zIndex: "0" }}
-                className="cryptoCircle z-[-1] relative sm: w-80 md:w-[500px]"
+                className="cryptoCircle z-[-1] relative w-80 sm: w-80 sm:w-[36300px] lg:w-[350px] "
               />
             </div>
           </div>
@@ -116,19 +115,42 @@ const Skills = () => {
   return (
     <>
       <div className=" h-auto  flex flex-col overflow-hidden justify-center items-center ">
-        <div className="flex flex-row items-center gap-2  rounded-full w-fit px-2 py-2">
+        <div className="flex flex-row items-center gap-2 bg-white  rounded-full w-fit px-2 py-2">
           <img src="/star.svg" color="white" width={"27px"} />
           <h1 className=" font-semibold text-2xl">Projects</h1>
         </div>
         <SkillsMarquee />
-        <div className="flex flex-row bg-white w-full justify-center items-center">
+        <div className="flex pt-8  bg-white w-full justify-center items-start  max-[1024px]:flex-row max-[640px]:flex-col max-[640px]:justify-start max-[640px]:pt-0">
           <CryptoAppMockups />
-          <div>
-            <h1 className="font-bold text-2xl lg: inline visible  md: inline sm: hidden ">Crypto-Wallet</h1>
+
+          <div className="flex gap-1 flex-1 flex-col   items-baseline lg:mt-40 lg:ml-20  max-[640px]:top-[-200px] max-[640px]:relative max-[640px]:p-4">
+            <div className="flex flex-row gap-3">
+              <h1 className="font-bold text-3xl lg:inline ">Crypto-Wallet</h1>
+              <div className=" cursor-pointer">
+                <img src={"/icons/github.svg"} width={"32px"} />
+              </div>
+            </div>
+            <TextGenerateEffect
+              words="A cryptocurrency wallet, often referred to as a crypto wallet, is
+              a digital tool that enables users to securely store, manage, and
+              interact with their cryptocurrencies. Unlike traditional wallets
+              that hold physical cash or cards, crypto wallets store
+              cryptographic keys that grant access to the user's cryptocurrency
+              holdings on a blockchain network. These wallets come in various
+              forms, ranging from software applications to hardware devices,
+              each offering different levels of security, accessibility, and
+              functionality."
+            />
+
             <div>
               {/* <img src="/mockup/CryptoIcons/cryptoCircle.svg" /> */}
             </div>
           </div>
+        </div>
+        <div className="flex pt-8  bg-white w-full justify-center items-start  max-[1024px]:flex-row max-[640px]:flex-col max-[640px]:justify-start max-[640px]:pt-0">
+          <div>
+            <iframe src="https://www.youtube.com/embed/gHOG1TkX0ic?autoplay=1&mute=1&loop=1&controls=0" width={"700px"} height={"350px"} allowFullScreen  />
+          </div> 
         </div>
       </div>
     </>

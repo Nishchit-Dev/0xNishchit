@@ -40,7 +40,7 @@ export default function Home() {
   }, []);
 
   const style = () => {
-    if (posY >300) {
+    if (posY >350) {
       return {
         transform: `scale(${1})`,
         transition: "transform 0.3s ease",
