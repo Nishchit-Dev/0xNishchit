@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
 import { TextGenerateEffect } from "../Text-GenerationEffect";
+import { useLenis } from "@studio-freight/react-lenis";
+import { useScrollText } from "@/app/_Hooks/Text-Scrool-Effect";
 
 const Icon_1 = [
   "/icons/Eth.svg",
@@ -72,19 +74,25 @@ const crypto = [
 ];
 
 const CryptoAppMockups = () => {
+  const [scrollValue,setScrollValue]= useState(0);
+  const lenis = useLenis(({ scroll }) => {
+    // console.log(scroll)
+    setScrollValue(scroll)
+  });
   useEffect(() => {
-    const ApeFestRound = document.querySelectorAll(".cryptoCircle");
-
+    // console.log(scrollValue)
     const handleScroll = () => {
-      const scrollY = window.scrollY;
+      const ApeFestRound = document.querySelectorAll(".cryptoCircle");
+
+      const scrollY = scrollValue||0;
       ApeFestRound.forEach((e: any) => {
         let temp = scrollY * 0.3;
-        e.style.transition = "transform 2s ease";
+        e.style.transition = "transform 0s ease";
         e.style.transform = `rotateZ(${temp}deg)`;
       });
     };
-    window.addEventListener("scroll", handleScroll);
-  }, []);
+    handleScroll()
+  }, [scrollValue]);
   return (
     <>
       <div className=" bg-white rounded-xl flex flex-1 justify-center items-center">
@@ -105,6 +113,68 @@ const CryptoAppMockups = () => {
               />
             </div>
           </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+const Text_Scroll_Animation = () => {
+
+  const {posY} = useScrollText()
+  
+  return (
+    <>
+      <div className="bg-white w-max overflow-hidden">
+        <div>
+          <h1
+            className="  text-6xl font-bold"
+            style={{
+              transform: `translateX(${posY}px)`,
+              transition: "transform 250ms ",
+            }}
+          >
+            A cryptocurrency wallet, often referred to as a crypto wallet, is a
+            digital tool that enables users to securely store, manage, and
+            interact with their cryptocurrencies. Unlike traditional wallets
+            that hold physical cash or cards, crypto wallets store cryptographic
+          </h1>
+        </div>
+        <div>
+          <h1
+            className="  text-6xl font-bold"
+            style={{
+              transform: `translateX(-${posY}px)`,
+              transition: "transform 200ms linear",
+            }}
+          >
+            A cryptocurrency wallet, often referred to as a crypto wallet, is a
+            digital tool that enables users to securely store, manage, and
+            interact with their cryptocurrencies. Unlike traditional wallets
+            that hold physical cash or cards, crypto wallets store cryptographic
+            keys that grant access to the user's cryptocurrency holdings on a
+            blockchain network. These wallets come in various forms, ranging
+            from software applications to hardware devices, each offering
+            different levels of security, accessibility, and functionality.
+          </h1>
+        </div>
+        <div>
+          <h1
+            className="  text-6xl font-bold"
+            style={{
+              transform: `translateX(${posY}px)`,
+              transition: "transform 200ms linear",
+            }}
+          >
+            A cryptocurrency wallet, often referred to as a crypto wallet, is a
+            digital tool that enables users to securely store, manage, and
+            interact with their cryptocurrencies. Unlike traditional wallets
+            that hold physical cash or cards, crypto wallets store cryptographic
+            keys that grant access to the user's cryptocurrency holdings on a
+            blockchain network. These wallets come in various forms, ranging
+            from software applications to hardware devices, each offering
+            different levels of security, accessibility, and functionality.
+          </h1>
         </div>
       </div>
     </>
@@ -147,10 +217,11 @@ const Skills = () => {
             </div>
           </div>
         </div>
+        <Text_Scroll_Animation />
         <div className="flex pt-8  bg-white w-full justify-center items-start  max-[1024px]:flex-row max-[640px]:flex-col max-[640px]:justify-start max-[640px]:pt-0">
           <div>
-            <iframe src="https://www.youtube.com/embed/gHOG1TkX0ic?autoplay=1&mute=1&loop=1&controls=0" width={"700px"} height={"350px"} allowFullScreen  />
-          </div> 
+            <img src="/gif/why-type.gif" width={"700px"} height={"350px"} />
+          </div>
         </div>
       </div>
     </>

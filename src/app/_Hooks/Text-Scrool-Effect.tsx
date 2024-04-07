@@ -1,20 +1,12 @@
 import { useEffect, useState } from "react";
 import { TextIntroTypewriter } from "../_components/Typing-Effect";
+import { useLenis } from "@studio-freight/react-lenis";
 
 export const useScrollText = () => {
-  const [posY, setPosY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      let tempY = window.pageYOffset;
-      setPosY(tempY);
-    };
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const [posY, setScollValue] = useState(0);
+  const lenis = useLenis(({ scroll }) => {
+    setScollValue(scroll);
+  });
 
   return { posY };
 };
