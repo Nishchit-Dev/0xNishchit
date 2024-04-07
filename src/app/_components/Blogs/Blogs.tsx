@@ -2,6 +2,7 @@ import useFetchBlogs from "@/app/_Hooks/useFetchBlogs";
 import { BentoGrid, BentoGridItem } from "../Bento-Grid";
 import { BlogPostType } from "../../_Types/blogPostType";
 import { BlogCard } from "./BlogCard";
+import Heading from "../Heading";
 const Blogs = () => {
   const { blogsData } = useFetchBlogs();
   // console.log(blogsData);
@@ -23,10 +24,7 @@ const Blogs = () => {
         id="blogsSection"
         className="flex-col h-max flex flex-1 flex-wrap gap-8 justify-center items-center"
       >
-        <div className="flex flex-row items-center gap-2 bg-black rounded-full w-fit px-2 py-2">
-          <img src="/star.svg" color="white"  width={"27px"} />
-          <h1 className=" font-semibold text-3xl text-white">Articles </h1>
-        </div>
+        <Heading title="Article" initialPoint={550} initialMarkup={3} />
         {/* <h1 className="text-white font-semibold text-3xl">Articles</h1> */}
 
         <div className=" h-max flex flex-1 flex-wrap gap-8 justify-center items-center">

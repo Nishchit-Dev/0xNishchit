@@ -3,6 +3,7 @@ import Marquee from "react-fast-marquee";
 import { TextGenerateEffect } from "../Text-GenerationEffect";
 import { useLenis } from "@studio-freight/react-lenis";
 import { useScrollText } from "@/app/_Hooks/Text-Scrool-Effect";
+import Heading from "../Heading";
 
 const Icon_1 = [
   "/icons/Eth.svg",
@@ -74,24 +75,24 @@ const crypto = [
 ];
 
 const CryptoAppMockups = () => {
-  const [scrollValue,setScrollValue]= useState(0);
+  const [scrollValue, setScrollValue] = useState(0);
   const lenis = useLenis(({ scroll }) => {
     // console.log(scroll)
-    setScrollValue(scroll)
+    setScrollValue(scroll);
   });
   useEffect(() => {
     // console.log(scrollValue)
     const handleScroll = () => {
       const ApeFestRound = document.querySelectorAll(".cryptoCircle");
 
-      const scrollY = scrollValue||0;
+      const scrollY = scrollValue || 0;
       ApeFestRound.forEach((e: any) => {
         let temp = scrollY * 0.3;
         e.style.transition = "transform 0s ease";
         e.style.transform = `rotateZ(${temp}deg)`;
       });
     };
-    handleScroll()
+    handleScroll();
   }, [scrollValue]);
   return (
     <>
@@ -120,9 +121,8 @@ const CryptoAppMockups = () => {
 };
 
 const Text_Scroll_Animation = () => {
+  const { posY } = useScrollText();
 
-  const {posY} = useScrollText()
-  
   return (
     <>
       <div className="bg-white w-max overflow-hidden">
@@ -130,21 +130,7 @@ const Text_Scroll_Animation = () => {
           <h1
             className="  text-6xl font-bold"
             style={{
-              transform: `translateX(${posY}px)`,
-              transition: "transform 200ms ",
-            }}
-          >
-            A cryptocurrency wallet, often referred to as a crypto wallet, is a
-            digital tool that enables users to securely store, manage, and
-            interact with their cryptocurrencies. Unlike traditional wallets
-            that hold physical cash or cards, crypto wallets store cryptographic
-          </h1>
-        </div>
-        <div>
-          <h1
-            className="  text-6xl font-bold"
-            style={{
-              transform: `translateX(-${posY}px)`,
+              transform: `translateX(${posY * 0.3}px)`,
               transition: "transform 200ms linear",
             }}
           >
@@ -153,16 +139,13 @@ const Text_Scroll_Animation = () => {
             interact with their cryptocurrencies. Unlike traditional wallets
             that hold physical cash or cards, crypto wallets store cryptographic
             keys that grant access to the user's cryptocurrency holdings on a
-            blockchain network. These wallets come in various forms, ranging
-            from software applications to hardware devices, each offering
-            different levels of security, accessibility, and functionality.
           </h1>
         </div>
         <div>
           <h1
             className="  text-6xl font-bold"
             style={{
-              transform: `translateX(${posY}px)`,
+              transform: `translateX(-${posY * 0.3}px)`,
               transition: "transform 200ms linear",
             }}
           >
@@ -171,9 +154,21 @@ const Text_Scroll_Animation = () => {
             interact with their cryptocurrencies. Unlike traditional wallets
             that hold physical cash or cards, crypto wallets store cryptographic
             keys that grant access to the user's cryptocurrency holdings on a
-            blockchain network. These wallets come in various forms, ranging
-            from software applications to hardware devices, each offering
-            different levels of security, accessibility, and functionality.
+          </h1>
+        </div>
+        <div>
+          <h1
+            className="  text-6xl font-bold"
+            style={{
+              transform: `translateX(${posY * 0.3}px)`,
+              transition: "transform 200ms linear",
+            }}
+          >
+            A cryptocurrency wallet, often referred to as a crypto wallet, is a
+            digital tool that enables users to securely store, manage, and
+            interact with their cryptocurrencies. Unlike traditional wallets
+            that hold physical cash or cards, crypto wallets store cryptographic
+            keys that grant access to the user's cryptocurrency holdings on a
           </h1>
         </div>
       </div>
@@ -185,10 +180,7 @@ const Skills = () => {
   return (
     <>
       <div className=" h-auto  flex flex-col overflow-hidden justify-center items-center ">
-        <div className="flex flex-row items-center gap-2 bg-white  rounded-full w-fit px-2 py-2">
-          <img src="/star.svg" color="white" width={"27px"} />
-          <h1 className=" font-semibold text-2xl">Projects</h1>
-        </div>
+       <Heading title="Project" initialPoint={800} initialMarkup={1}/>
         <SkillsMarquee />
         <div className="flex pt-8  bg-white w-full justify-center items-start  max-[1024px]:flex-row max-[640px]:flex-col max-[640px]:justify-start max-[640px]:pt-0">
           <CryptoAppMockups />
