@@ -131,7 +131,7 @@ const Text_Scroll_Animation = () => {
             className="  text-6xl font-bold"
             style={{
               transform: `translateX(${posY}px)`,
-              transition: "transform 250ms ",
+              transition: "transform 200ms ",
             }}
           >
             A cryptocurrency wallet, often referred to as a crypto wallet, is a
