@@ -65,7 +65,7 @@ export default function Home() {
 
         <div
           id="lvl2Wrapper"
-          className={`top-[1024px] relative backdrop-blur-xl scale-[${scrollFactor}] ease-linear `}
+          className={` top-[1024px] relative backdrop-blur-xl scale-[${scrollFactor}] ease-linear `}
           // style={style()}
         >
           {/* lvl-1 */}

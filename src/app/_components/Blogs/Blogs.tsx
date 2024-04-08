@@ -29,7 +29,9 @@ const Blogs = () => {
 
         <div className=" h-max flex flex-1 flex-wrap gap-8 justify-center items-center">
           {blogsData.map((data: BlogPostType, i: number) => {
-            return <BlogCard data={data} key={i} />;
+            if (i < 8) {
+              return <BlogCard data={data} key={i} />;
+            }
           })}
           <BlogCard
             data={{
@@ -38,8 +40,8 @@ const Blogs = () => {
               id: "",
               slug: "",
               className: "",
-              title: "Explore More",
-              url: "",
+              title: "Explore Over "+(blogsData.length-1)+"+",
+              url: "https://0xnishchit.hashnode.dev/",
             }}
             key={99}
           />

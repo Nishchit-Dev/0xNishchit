@@ -2,7 +2,9 @@ import { BlogPostType } from "@/app/_Types/blogPostType";
 
 export const BlogCard = ({ data }: { data: BlogPostType }) => {
   return (
-    <div className=" w-60 bg-slate-800 cursor-pointer">
+    <div className=" w-60 bg-slate-800 cursor-pointer h-full" onClick={()=>{
+      window.open(data.url,"_blank")
+    }}>
       <div>
         {data.coverImageUrl != "" ? (
           <img
