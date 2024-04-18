@@ -23,7 +23,7 @@ const Heading = ({
         e.style.transform = `rotateZ(${scrollValue}deg)`;
         if (scrollValue < initialPoint) {
           let divider = initialPoint/(10 - initialMarkup);
-          console.log(title,(scrollValue / divider).toFixed(2));
+          
           if (scrollValue / divider < 40) {
             setWidth((scrollValue*initialMarkup / divider).toFixed(2).toString() + "%");
           }
