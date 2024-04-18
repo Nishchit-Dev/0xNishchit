@@ -7,12 +7,16 @@ import MarqueeEffect from "./_components/Marquee-Effect";
 import Blogs from "./_components/Blogs/Blogs";
 import Skills from "./_components/Skills/Skills";
 import { ReactLenis, useLenis } from "@studio-freight/react-lenis";
+import { Footer } from "./_components/Footer/Footer";
+import { useScrollText } from "./_Hooks/Text-Scrool-Effect";
+import { SoundPlayer } from "./_components/SoundPlayer";
 
 export default function Home() {
   const divRef: any = useRef(null);
   const [scrollValue, setScollValue] = useState(0);
   const [scrollFactor, setScrollFactor] = useState(0.15);
   const [playFlag, setPlayFlag] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       if (scrollValue > 150 && scrollValue) {
@@ -20,12 +24,7 @@ export default function Home() {
       }
     };
     handleScroll();
-    const handlePlay = () => {
-      if (!playFlag) {
-        setPlayFlag(true);
-      }
-    };
-    window.addEventListener("scroll", handlePlay);
+
     window.addEventListener("scrollend", () => {
       setPlayFlag(false);
     });
@@ -43,9 +42,7 @@ export default function Home() {
   return (
     <>
       <ReactLenis root>
-        <audio loop autoPlay>
-          <source src="/sound/bubble-sound.mp3" type="audio/mpeg"></source>
-        </audio>
+        {/* <SoundPlayer /> */}
         {/* lvl-0 */}
         <div className="fixed w-screen h-screen">
           <div
@@ -89,6 +86,8 @@ export default function Home() {
               {/* <h1 className=" text-white">Hello Lvl 2</h1> */}
             </div>
           </div>
+
+          <Footer />
         </div>
       </ReactLenis>
     </>

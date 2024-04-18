@@ -123,7 +123,6 @@ const CryptoAppMockups = () => {
 };
 
 const Skills = () => {
-
   return (
     <>
       <div className="skill h-auto  flex flex-col overflow-hidden justify-center items-center ">
@@ -133,7 +132,9 @@ const Skills = () => {
           <CryptoAppMockups />
 
           <div className="flex gap-1 flex-1 flex-col   items-baseline lg:mt-40 lg:ml-20  max-[640px]:top-[-200px] max-[640px]:relative max-[640px]:p-4">
-            <div className="flex flex-row gap-3">
+            <div className="flex flex-row gap-3" onClick={()=>{
+              window.open("https://github.com/Nishchit-Dev/CryptoWallet","_blank")
+            }}>
               <h1 className="font-bold text-3xl lg:inline ">Crypto-Wallet</h1>
               <div className=" cursor-pointer">
                 <img src={"/icons/github.svg"} width={"32px"} />
@@ -160,7 +161,15 @@ const Skills = () => {
 
         <div className="flex pt-8 px-20 h-screen  bg-white w-full justify-center items-center  max-[1024px]:flex-row max-[640px]:flex-col max-[640px]:justify-start max-[640px]:pt-0">
           <div className="flex gap-1 flex-1 flex-col   items-baseline  lg:ml-20  max-[640px]:top-[-200px] max-[640px]:relative max-[640px]:p-4">
-            <div className="flex flex-row gap-3">
+            <div
+              className="flex flex-row gap-3"
+              onClick={() => {
+                window.open(
+                  "https://github.com/Nishchit-Dev/WhyType",
+                  "_blank"
+                );
+              }}
+            >
               <h1 className="font-bold text-3xl lg:inline ">Why-Type</h1>
               <div className=" cursor-pointer">
                 <img src={"/icons/github.svg"} width={"32px"} />
